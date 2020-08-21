@@ -1,0 +1,24 @@
+<h3>Agregar Cantante</h3>
+<form>
+    <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" name="name" [(ngModel)]="cantante.Name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Genero</label>
+        <input type="text" name="kindOfMusic" [(ngModel)]="cantante.KindOfMusic" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Canciones</label>
+        <input type="text" class="form-control" name="cancion" [(ngModel)]="cancion">
+        <button (click)="agregarCancion()" class="btn btn-sm btn-success">Agregar</button>
+    </div>
+    <div *ngIf="cantante.Songs.length > 0">
+        <ul>
+            <li *ngFor="let item of cantante.Songs">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+    <button type="button" (click)="guardarCantante()" class="btn btn-primary">Guardar</button>
+</form>

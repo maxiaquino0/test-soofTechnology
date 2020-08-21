@@ -1,0 +1,29 @@
+<h3>Buscar Cantantes por Genero</h3>
+<input type="text" name="genero" [(ngModel)]="genero" class="form-control">
+<br>
+<button class="btn btn-primary" (click)="buscarCantantes()">Buscar</button>
+<hr>
+<div class="container">
+    <table *ngIf="cantantes.length > 0" class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Canciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cantantes">
+                <th>{{item.Name}}</th>
+                <td>{{item.KindOfMusic}}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let song of item.Songs">
+                            {{song}}
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
